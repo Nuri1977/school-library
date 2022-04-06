@@ -86,7 +86,7 @@ class App
     puts 'Create a new book'
     print 'Enter title: '
     title = gets.chomp
-    puts 'Enter author: '
+    print 'Enter author: '
     author = gets
     book = Book.new(title, author)
     @books.push(book)
@@ -109,9 +109,19 @@ class App
     print 'Date: '
     date = gets.chomp.to_s
 
-    rental = Rental.new(date, @books[book_id], @persons[person_id])
+    rental = Rental.new(date, @persons[person_id], @books[book_id])
     @rentals << rental
 
     puts 'Rental created successfully'
+  end
+
+  def list_all_rentals
+    print 'To see person rentals enter the person ID: '
+    id = gets.chomp.to_i
+
+    puts 'Rented Books:'
+    @rentals.each do |rental|
+      puts "Peson: #{rental.person.name}  Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id
+    end
   end
 end
