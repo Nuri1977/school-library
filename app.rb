@@ -5,6 +5,9 @@ require './book'
 require './classroom'
 require './rental'
 require './console_options'
+require 'json'
+require './data/data_read'
+require './data/data_whrite'
 
 class App < Console
   def initialize
@@ -36,6 +39,7 @@ class App < Console
     else
       puts 'Invalid input. Try again'
     end
+    save_persons
   end
 
   def create_student
@@ -48,11 +52,11 @@ class App < Console
     parent_permission = gets.chomp.downcase
     case parent_permission
     when 'n'
-      Student.new(age, 'classroom', name, parent_permission: false)
+      student = Student.new(age, 'classroom', name, false)
       @persons << student
       puts 'Student doesnt have parent permission, cant rent books'
     when 'y'
-      student = Student.new(age, 'classroom', name, parent_permission: false)
+      student = Student.new(age, 'classroom', name, true)
       @persons << student
       puts 'Student created successfully'
     end
@@ -80,6 +84,7 @@ class App < Console
     book = Book.new(title, author)
     @books.push(book)
     puts "Book #{title} created successfully."
+    save_books
   end
 
   def create_rental
@@ -100,22 +105,29 @@ class App < Console
 
     rental = Rental.new(date, @persons[person_id], @books[book_id])
     @rentals << rental
-
     puts 'Rental created successfully'
+
+    save_rentals(date, person_id, book_id)
   end
 
   def list_all_rentals
     print 'To see person rentals enter the person ID: '
     id = gets.chomp.to_i
 
-    puts 'Rented Books:'
-    @rentals.each do |rental|
+    puts "Rented Books for #{id}:"
+    test = false
+    @rentals.any? do |rental|
       if rental.person.id == id
+        test = true
         puts "Peson: #{rental.person.name}  Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
-      else
-        puts
-        puts 'No records where found for the given ID'
       end
     end
+    puts 'Id Error! Kindly enter correct ID' unless test
+  end
+
+  def run
+    @persons = read_person
+    @books = read_book
+    @rentals = read_rentals
   end
 end
