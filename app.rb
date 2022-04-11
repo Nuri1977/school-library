@@ -86,8 +86,6 @@ class App < Console
     puts "Book #{title} created successfully."
     save_books
   end
-  
-
 
   def create_rental
     puts 'Select which book you want to rent by entering its number'
@@ -107,27 +105,29 @@ class App < Console
 
     rental = Rental.new(date, @persons[person_id], @books[book_id])
     @rentals << rental
-
     puts 'Rental created successfully'
+
+    save_rentals(date, person_id, book_id)
   end
 
   def list_all_rentals
     print 'To see person rentals enter the person ID: '
     id = gets.chomp.to_i
 
-    puts 'Rented Books:'
-    @rentals.each do |rental|
+    puts "Rented Books for #{id}:"
+    test = false
+    @rentals.any? do |rental|
       if rental.person.id == id
+        test = true
         puts "Peson: #{rental.person.name}  Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
-      else
-        puts
-        puts 'No records where found for the given ID'
       end
     end
+    puts 'Id Error! Kindly enter correct ID' unless test
   end
 
   def run
     @persons = read_person
     @books = read_book
+    @rentals = read_rentals
   end
 end

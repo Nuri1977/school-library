@@ -1,0 +1,17 @@
+[
+  {
+    "Date": "1/1/2010",
+    "book_index": 1,
+    "person_index": 1
+  },
+  {
+    "Date": "02/02/2020",
+    "book_index": 0,
+    "person_index": 2
+  },
+  {
+    "Date": "02/03/2021",
+    "book_index": 2,
+    "person_index": 2
+  }
+]
