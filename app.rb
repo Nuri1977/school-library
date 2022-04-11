@@ -84,7 +84,10 @@ class App < Console
     book = Book.new(title, author)
     @books.push(book)
     puts "Book #{title} created successfully."
+    save_books
   end
+  
+
 
   def create_rental
     puts 'Select which book you want to rent by entering its number'
@@ -125,5 +128,6 @@ class App < Console
 
   def run
     @persons = read_person
+    @books = read_book
   end
 end

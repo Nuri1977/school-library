@@ -13,3 +13,14 @@ def read_person
     []
   end
 end
+
+def read_book
+  if File.exist?('./data/books.json')
+    books = JSON.parse(File.read('./data/books.json'))
+    books.map do |book|
+      Book.new(book['title'], book['author'])
+    end
+  else
+    []
+  end
+end

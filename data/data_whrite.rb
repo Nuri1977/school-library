@@ -20,3 +20,11 @@ def save_persons
     file.puts(JSON.pretty_generate(person_store))
   end
 end
+
+def save_books
+  file = File.open('./data/books.json', 'w')
+  book_store = @books.map do |book|
+    { title: book.title, author: book.author }
+  end
+  file.puts(JSON.pretty_generate(book_store))
+end
