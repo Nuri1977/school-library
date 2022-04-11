@@ -5,6 +5,9 @@ require './book'
 require './classroom'
 require './rental'
 require './console_options'
+require 'json'
+require './data/data_read'
+require './data/data_whrite'
 
 class App < Console
   def initialize
@@ -36,6 +39,7 @@ class App < Console
     else
       puts 'Invalid input. Try again'
     end
+    preserve_persons
   end
 
   def create_student
@@ -48,11 +52,11 @@ class App < Console
     parent_permission = gets.chomp.downcase
     case parent_permission
     when 'n'
-      Student.new(age, 'classroom', name, parent_permission: false)
+      student = Student.new(age, 'classroom', name, false)
       @persons << student
       puts 'Student doesnt have parent permission, cant rent books'
     when 'y'
-      student = Student.new(age, 'classroom', name, parent_permission: false)
+      student = Student.new(age, 'classroom', name, true)
       @persons << student
       puts 'Student created successfully'
     end
@@ -117,5 +121,9 @@ class App < Console
         puts 'No records where found for the given ID'
       end
     end
+  end
+
+  def run
+    @persons = read_person
   end
 end
