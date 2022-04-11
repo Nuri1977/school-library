@@ -4,25 +4,14 @@ require './teacher'
 require './book'
 require './classroom'
 require './rental'
+require './console_options'
 
-class App
+class App < Console
   def initialize
+    super()
     @books = []
     @persons = []
     @rentals = []
-  end
-
-  def start_console
-    puts 'Welcome to my School Library!'
-    until list_of_options
-      input = gets.chomp
-      if input == '7'
-        puts 'Thank You for using my School Library!'
-        break
-      end
-
-      option input
-    end
   end
 
   def list_all_books
