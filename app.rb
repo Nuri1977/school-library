@@ -4,9 +4,11 @@ require './teacher'
 require './book'
 require './classroom'
 require './rental'
+require './console_options'
 
-class App
+class App < Console
   def initialize
+    super()
     @books = []
     @persons = []
     @rentals = []
