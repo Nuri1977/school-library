@@ -3,14 +3,18 @@
     "occupation": "Student",
     "name": "Nuri",
     "age": 44,
-    "parent_permission": {
-      "parent_permission": true
-    }
+    "parent_permission": true
   },
   {
     "occupation": "Teacher",
     "name": "Dejan",
     "age": 55,
     "specialization": "Rails"
+  },
+  {
+    "occupation": "Student",
+    "name": "Ardit",
+    "age": 12,
+    "parent_permission": false
   }
 ]

@@ -1,4 +1,4 @@
-def preserve_persons
+def save_persons
   person_store = @persons.map do |person, _index, _id|
     if person.instance_of?(Teacher)
       {

@@ -39,7 +39,7 @@ class App < Console
     else
       puts 'Invalid input. Try again'
     end
-    preserve_persons
+    save_persons
   end
 
   def create_student
