@@ -16,8 +16,6 @@ The app will allow you to:
 - Ruby
 
 
-
-
 ## Getting Started
 
 Clone this repository using
@@ -27,8 +25,10 @@ cd into the repository
 `cd school-library`
 
 run files with
-`ruby FILENAME`
+`ruby main.rb`
 
+run test
+`rspec`
 
 
 ## Authors
@@ -38,6 +38,12 @@ run files with
 - GitHub: [@Nuri1977](https://github.com/Nuri1977)
 - Twitter: [@Lackanuri](https://twitter.com/LackaNuri)
 - LinkedIn: [@nurilacka](https://www.linkedin.com/in/nuri-lacka-7141b01ba/)
+
+👤 **Dejan Vujovic**
+
+- Github : [@VuDej](https://github.com/VuDej)
+- Twitter: [@DejanVuj](https://twitter.com/DejanVuj)
+- LinkedIn : [@Dejan-Vujovic](https://www.linkedin.com/in/dejan-vujovic-5a0672225/)
 
 ## 🤝 Contributing
 
