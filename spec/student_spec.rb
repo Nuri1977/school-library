@@ -10,7 +10,7 @@ describe Student do
       expect(student1.parent_permission).to be true
     end
 
-    it 'The student ' do
+    it 'The student should have classroom english ' do
       student1 = Student.new(44, 'Rails', 'Nuri', true)
       english = Classroom.new('English')
       student1.classroom = english
