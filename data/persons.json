@@ -22,5 +22,17 @@
     "name": "Marta",
     "age": 23,
     "parent_permission": true
+  },
+  {
+    "occupation": "Student",
+    "name": "Smith",
+    "age": 32,
+    "parent_permission": true
+  },
+  {
+    "occupation": "Teacher",
+    "name": "Bill",
+    "age": 45,
+    "specialization": "Math"
   }
 ]
