@@ -2,7 +2,7 @@ require './person'
 
 describe Person do
   context 'When testing the Person class' do
-    it 'should show Person attributes values' do
+    it 'should show new Person instance created' do
       person1 = Person.new(32, 'Dejan', true)
       expect(person1).to be_instance_of(Person)
     end
